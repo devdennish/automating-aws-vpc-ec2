@@ -23,10 +23,9 @@ SecurityGroup() {
 SECURITY_GROUP_ID=$(SecurityGroup)
 
 IfFunctionFails "Security Group created successfully" "Error creating Security Group"
+sleep 2
 
 # Add rules to the security group
-
-# sleep 2
 
 aws ec2 authorize-security-group-ingress \
     --group-id $SECURITY_GROUP_ID \
@@ -35,3 +34,4 @@ aws ec2 authorize-security-group-ingress \
     >/dev/null
 
 IfFunctionFails "Ingress rule added successfully" "Error adding Ingress rule"
+sleep 2

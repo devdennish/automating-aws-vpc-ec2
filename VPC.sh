@@ -81,13 +81,13 @@ VPC_ID=$(
 )
 
 IfFunctionFails "VPC Created with ID: $VPC_ID" "Error Creating VPC"
+sleep 2
 
 #Add Name to VPC
 
 CreateTags $VPC_ID $VPC_NAME $REGION
 
 IfFunctionFails "VPC Name Added Successfully" "Error Adding Name to VPC"
-
 sleep 2
 
 # Enable DNS Support and Hostname Support
@@ -111,7 +111,6 @@ IfFunctionFails "Public Subnet 1 Created with Name: $PUBLIC_SUBNET_1_NAME and ID
 
 ModifySubnetAttribute $PUBLIC_SUBNET_1_ID
 IfFunctionFails "Public IP will be assigned to Instances in Public Subnet 1" "Error Assigning Public IP to Instances in Public Subnet 1"
-
 sleep 2
 
 # Create Public Subnet 2 & Name it
@@ -121,7 +120,7 @@ PUBLIC_SUBNET_2_ID=$(
 CreateTags $PUBLIC_SUBNET_2_ID $PUBLIC_SUBNET_2_NAME $REGION
 
 IfFunctionFails "Public Subnet 2 Created with Name: $PUBLIC_SUBNET_2_NAME and ID: $PUBLIC_SUBNET_2_ID" "Error Creating Public Subnet 2"
-
+sleep 2
 # Automatically assign Public IP to Instances in Public Subnet 2
 
 ModifySubnetAttribute $PUBLIC_SUBNET_2_ID
@@ -136,7 +135,6 @@ PRIVATE_SUBNET_1_ID=$(
 CreateTags $PRIVATE_SUBNET_1_ID $PRIVATE_SUBNET_1_NAME $REGION
 
 IfFunctionFails "Private Subnet 1 Created with Name: $PRIVATE_SUBNET_1_NAME and ID: $PRIVATE_SUBNET_1_ID" "Error Creating Private Subnet 1"
-
 sleep 2
 
 # Create Private Subnet 2 & Name it
@@ -146,7 +144,9 @@ PRIVATE_SUBNET_2_ID=$(
 CreateTags $PRIVATE_SUBNET_2_ID $PRIVATE_SUBNET_2_NAME $REGION
 
 IfFunctionFails "Private Subnet 2 Created with Name: $PRIVATE_SUBNET_2_NAME and ID: $PRIVATE_SUBNET_2_ID" "Error Creating Private Subnet 2"
+sleep 2
 echo "VPC, Subnets, and Tags Created Successfully" && echo "Creating Security Group and Adding Rules"
+sleep 2
 
 # Import the SecurityGroup.sh script
 
@@ -155,3 +155,7 @@ source SecurityGroup.sh
 # Import the InternetGateway.sh script
 
 source InternetGateway.sh
+
+# Import the RouteTables.sh script
+
+source RouteTables.sh

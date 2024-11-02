@@ -18,6 +18,7 @@ INTERNET_GATEWAY_ID=$(
 # Check if the Internet Gateway was created successfully
 
 IfFunctionFails "Internet Gateway created successfully with ID: $INTERNET_GATEWAY_ID" "Error creating Internet Gateway"
+sleep 2
 
 # Attach the Internet Gateway to the VPC
 
@@ -29,6 +30,7 @@ aws ec2 attach-internet-gateway \
 # Check if the Internet Gateway was attached successfully
 
 IfFunctionFails "Internet Gateway attached successfully to VPC: $VPC_NAME" "Error attaching Internet Gateway to VPC"
+sleep 2
 
 # Name the Interet Gateway
 
@@ -37,3 +39,4 @@ CreateTags $INTERNET_GATEWAY_ID $IGW_NAME "ap-southeast-2"
 # Check if the Internet Gateway was named successfully
 
 IfFunctionFails "Internet Gateway named successfully: $IGW_NAME" "Error naming Internet Gateway"
+sleep 2
