@@ -151,3 +151,7 @@ echo "VPC, Subnets, and Tags Created Successfully" && echo "Creating Security Gr
 # Import the SecurityGroup.sh script
 
 source SecurityGroup.sh
+
+# Import the InternetGateway.sh script
+
+source InternetGateway.sh
