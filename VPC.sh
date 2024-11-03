@@ -159,3 +159,7 @@ source InternetGateway.sh
 # Import the RouteTables.sh script
 
 source RouteTables.sh
+
+# Import the KeyPair.sh script
+
+source KeyPair.sh
