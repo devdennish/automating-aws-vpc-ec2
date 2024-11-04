@@ -163,3 +163,7 @@ source RouteTables.sh
 # Import the KeyPair.sh script
 
 source KeyPair.sh
+
+# Import the EC2.sh script
+
+source EC2.sh
